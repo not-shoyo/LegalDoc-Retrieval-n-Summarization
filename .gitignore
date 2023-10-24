@@ -2,3 +2,5 @@ All_Data/AILA_2019_Dataset/Object_casedocs
 All_Data/AILA_2019_Dataset/Object_statutes
 All_Data/Generated_Data/RR_Embeddings
 ILSUM_Competition/Dataset
+All_Data/Document_Summarization_Dataset
+!All_Data/Document_Summarization_Dataset/README.md
