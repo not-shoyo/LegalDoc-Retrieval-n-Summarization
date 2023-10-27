@@ -5,4 +5,5 @@ All_Data/Document_Summarization_Dataset/*
 !All_Data/Document_Summarization_Dataset/README.md
 All_Data/NER_Datasets/Standard_NER_Dataset/*
 All_Data/NER_Datasets/Indian_Legal_NER_Dataset/*
+# Saved_Models/NER_Models/*
 ILSUM_Competition/Dataset
