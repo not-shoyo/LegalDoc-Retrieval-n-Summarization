@@ -1,5 +1,7 @@
 All_Data/AILA_2019_Dataset/Object_casedocs
 All_Data/AILA_2019_Dataset/Object_statutes
+All_Data/IRLED_2017_Dataset/Current_Cases
+All_Data/IRLED_2017_Dataset/Prior_Cases
 All_Data/Generated_Data/RR_Embeddings
 All_Data/Document_Summarization_Dataset/*
 !All_Data/Document_Summarization_Dataset/README.md
