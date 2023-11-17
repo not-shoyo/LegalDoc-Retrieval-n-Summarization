@@ -2,6 +2,12 @@ All_Data/AILA_2019_Dataset/Object_casedocs
 All_Data/AILA_2019_Dataset/Object_statutes
 All_Data/IRLED_2017_Dataset/Current_Cases
 All_Data/IRLED_2017_Dataset/Prior_Cases
+All_Data/Generated_Data/IR_Datasets/*
+!All_Data/Generated_Data/IR_Datasets/.gitkeep
+All_Data/Generated_Data/PreProcessed_Data_AILA/*
+!All_Data/Generated_Data/PreProcessed_Data_AILA/.gitkeep
+All_Data/Generated_Data/PreProcessed_Data_IRLED/*
+!All_Data/Generated_Data/PreProcessed_Data_IRLED/.gitkeep
 All_Data/Generated_Data/RR_Embeddings/*
 !All_Data/Generated_Data/RR_Embeddings/.gitkeep
 All_Data/Document_Summarization_Dataset/*
