@@ -22,3 +22,4 @@ Saved_Models/NER_Models/*
 !Saved_Models/NER_Models/.gitkeep
 ILSUM_Competition/Dataset/*
 !ILSUM_Competition/Dataset/.gitkeep
+RR_Identification/__pycache__/*
