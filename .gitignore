@@ -10,6 +10,8 @@ All_Data/Generated_Data/PreProcessed_Data_IRLED/*
 !All_Data/Generated_Data/PreProcessed_Data_IRLED/.gitkeep
 All_Data/Generated_Data/RR_Embeddings/*
 !All_Data/Generated_Data/RR_Embeddings/.gitkeep
+All_Data/Generated_Data/Paper_Data/*
+!All_Data/Generated_Data/Paper_Data/.gitkeep
 All_Data/Document_Summarization_Dataset/*
 !All_Data/Document_Summarization_Dataset/README.md
 All_Data/NER_Datasets/Standard_NER_Dataset/*
