@@ -82,7 +82,7 @@ def main():
 def get_input_docs_text():
     import os
 
-    folder_path = "All_Data/Generated_Data/Paper_Data/Documents"
+    folder_path = "../All_Data/Generated_Data/Paper_Data/Documents"
     file_contents_dict = {}
 
     # Iterate through all files in the folder
@@ -115,12 +115,13 @@ def label_input_docs():
 
     parser = argparse.ArgumentParser(add_help=False)
 
-    parser.add_argument('--data_path', default = 'All_Data/Generated_Data/Paper_Data/Generated_Document_Embeddings/', type = str, help = 'Folder which has input embeddings')
+    parser.add_argument('--data_path', default = '../All_Data/Generated_Data/Paper_Data/Generated_Document_Embeddings/', type = str, help = 'Folder which has input embeddings')
     parser.add_argument('--dataset_size', default = 100, type = int, help = 'Total no. of test docs')
     parser.add_argument('--batch_size', default = 32, type = int) # ??? why 32
     parser.add_argument('--emb_dim', default = 512, type = int, help = 'Sentence embedding dimension') # ???? why 512
     parser.add_argument('--pretrained', default = True, type = bool, help = 'Whether the model uses pretrained sentence embeddings or not')
     parser.add_argument('--device', default = 'cuda', type = str, help = 'cuda / cpu')
+    parser.add_argument('--save_path', default = '../Saved_Models/RR_Model', type = str, help = 'Folder where predictions and models will be saved')
     # parser.add_argument('-f', default = '')
 
     # args = parser.parse_args()
@@ -134,11 +135,11 @@ def label_input_docs():
     model_state = checkpoint['state_dict']
 
     # Read the saved word2idx from file
-    with open('RR_Identification/Saved/word2idx.json', 'r') as file:
+    with open('./Saved/word2idx.json', 'r') as file:
         word2idx = json.load(file)
     
     # Read the saved tag2idx from file
-    with open('RR_Identification/Saved/tag2idx.json', 'r') as file:
+    with open('./Saved/tag2idx.json', 'r') as file:
         tag2idx = json.load(file)
         idx2tag = {v: k for k, v in tag2idx.items()}
 
