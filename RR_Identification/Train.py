@@ -184,16 +184,55 @@ def learn(model, x, y, tag2idx, val_fold, args):
             data_state = {'idx': val_idx, 'loss': val_loss, 'gold': val_gold, 'pred': val_pred}
             
     end_time = time.time()
-    
     print("Dumping model and data ...", end = ' ')
     
     torch.save(model_state, args.save_path + 'model_state' + str(val_fold) + '.tar')
-    
     with open(args.save_path + 'data_state' + str(val_fold) + '.json', 'w') as fp:
         json.dump(data_state, fp)
     
     print("Done")    
-
     print('Time taken:', int(end_time - start_time), 'secs')
-
     statistics(data_state, tag2idx)
+
+def batchify_for_prediction(x, batch_size):
+    idx = list(range(len(x)))
+    random.shuffle(idx)
+    
+    # convert to numpy array for ease of indexing
+    x = np.array(x)[idx]
+    
+    i = 0
+    while i < len(x):
+        j = min(i + batch_size, len(x))
+        
+        batch_idx = idx[i : j]
+        batch_x = x[i : j]
+        
+        yield batch_idx, batch_x
+        
+        i = j
+
+def predict_labels_step(model, x, batch_size):
+
+    y_pred = [] # predictions
+    idx = [] # example index
+    
+    for _, (batch_idx, batch_x) in enumerate(batchify_for_prediction(x, batch_size)):
+        pred = model(batch_x)
+                    
+        y_pred.extend(pred)
+        idx.extend(batch_idx)
+        
+    assert len(sum(x, [])) == len(sum(y_pred, [])), "Mismatch in predicted"
+    
+    return idx, y_pred
+
+def predict_labels(model, x, y, tag2idx, args):
+
+    val_idx = list(range(len(x)))
+    
+    val_x = [x[i] for i in val_idx]
+    
+    test_idx, test_pred = predict_labels_step(model, val_x, args.batch_size)
+
+    return test_idx, test_pred

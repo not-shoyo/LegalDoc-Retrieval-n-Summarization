@@ -35,6 +35,14 @@ def prepare_folds(args):
 
     # list[num_folds, docs_per_fold] --> list[num_folds * docs_per_fold]
     idx_order = sum(folds, [])
+
+    # # ===============================
+
+    # # For this, we need to rename all the (embedding) files as continuous values from 1 to 7030 and not any gaps in the middle
+    # idx_order = ['c' + str(i) for i in range(1, args.dataset_size + 1)]
+
+    # # ===============================
+
     return idx_order
 
 '''
@@ -63,6 +71,11 @@ def prepare_data(idx_order, args):
             
             # iterate over sentences
             for sent in fp:
+
+                # ===============================
+                # Currently when no label exists with the embedding, we just continue. Idk if that is good or not. 
+                # ===============================
+                
                 try:
                     sent_x, sent_y = sent.strip().split('\t')
                 except ValueError:
@@ -121,3 +134,43 @@ def prepare_data_inference(idx_order, args, sent2vec_model):
 
     return x
     
+
+def prepare_test_folds(args):
+    # ===============================
+
+    # For this, we need to rename all the (embedding) files as continuous values from 1 to 7030 and not any gaps in the middle
+    idx_order = ['c' + str(i) for i in range(1, args.dataset_size + 1)]
+
+    # ===============================
+
+    return idx_order
+
+def prepare_test_data(idx_order, args):
+    x = []
+
+    # iterate over documents
+    for doc in idx_order:
+        doc_x = []
+
+        with open(args.data_path + doc + '.txt') as fp:
+            
+            # iterate over sentences
+            for sent in fp:
+
+                # ===============================    
+                
+                try:
+                    sent_x = sent.strip()
+                except ValueError:
+                    continue
+
+                # ===============================    
+                
+                sent_x = list(map(float, sent_x.strip().split()[:args.emb_dim]))
+
+                if sent_x != []:
+                    doc_x.append(sent_x)
+        
+        x.append(doc_x)
+
+    return x
