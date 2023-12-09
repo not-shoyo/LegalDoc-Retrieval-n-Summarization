@@ -1,1 +1,18 @@
-{"<pad>": 0, "<start>": 1, "<end>": 2, "PREAMBLE": 3, "NONE": 4, "FAC": 5, "ISSUE": 6, "ARG_PETITIONER": 7, "RLC": 8, "ANALYSIS": 9, "PRE_RELIED": 10, "RATIO": 11, "RPC": 12, "STA": 13, "ARG_RESPONDENT": 14, "PRE_NOT_RELIED": 15, "STARPC": 16}
+{
+  "<pad>": 0,
+  "<start>": 1,
+  "<end>": 2,
+  "PREAMBLE": 3,
+  "NONE": 4,
+  "FAC": 5,
+  "ISSUE": 6,
+  "ARG_PETITIONER": 7,
+  "RLC": 8,
+  "ANALYSIS": 9,
+  "PRE_RELIED": 10,
+  "RATIO": 11,
+  "RPC": 12,
+  "STA": 13,
+  "ARG_RESPONDENT": 14,
+  "PRE_NOT_RELIED": 15
+}
