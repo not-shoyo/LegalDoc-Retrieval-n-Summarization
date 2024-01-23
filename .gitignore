@@ -20,6 +20,8 @@ All_Data/NER_Datasets/Indian_Legal_NER_Dataset/*
 !All_Data/NER_Datasets/Indian_Legal_NER_Dataset/.gitkeep
 All_Data/Generated_Data/Indian_Legal_NER_Dataset/*
 !All_Data/Generated_Data/Indian_Legal_NER_Dataset/.gitkeep
+All_Data/Generated_Data/KG_Data/Sample_KG_Data/*
+!All_Data/Generated_Data/KG_Data/Sample_KG_Data/.gitkeep
 Saved_Models/NER_Models/*
 !Saved_Models/NER_Models/.gitkeep
 ILSUM_Competition/Dataset/*
