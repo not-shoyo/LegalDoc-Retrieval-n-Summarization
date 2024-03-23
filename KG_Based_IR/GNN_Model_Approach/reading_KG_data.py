@@ -90,13 +90,32 @@ def read_knowledge_graph(csv_file):
     relation = parse_entity(row['r'])
 
     # Append the triplet to the list
-    triplets_list.append((source_entity, relation, destination_entity))
+    triplets_list.append([source_entity, relation, destination_entity])
 
   return triplets_list
 
 
 def return_required_triplets(path_to_kg_csv):
   return read_knowledge_graph(path_to_kg_csv)
+
+def return_relevance_label(query_num, document_num):
+  relevance_info_csv = "All_Data/Generated_Data/PreProcessed_Data_AILA/AILA_Relevance_Preprocessed_Data.csv"
+  query_name = f"AILA_Q${query_num}"
+  document_name = f"C${document_num}"
+
+  # Read the CSV file into a DataFrame
+  relevance_data = pd.read_csv(relevance_info_csv)
+
+  # Filter the DataFrame based on query_name and document_name
+  relevant_row = relevance_data[(relevance_data['Query_Name'] == query_name) & (relevance_data['Document_Name'] == document_name)]
+
+  # If no matching row found, return -1 (indicating data not found)
+  if relevant_row.empty:
+      return -1
+  
+  # Extract the relevance label from the filtered row
+  relevance_label = relevant_row['Relevance'].values[0]
+  return relevance_label
 
 
 if __name__ == "__main__":
